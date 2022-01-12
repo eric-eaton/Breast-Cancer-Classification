@@ -1,4 +1,3 @@
-Breast Cancer Classification utilizing Scikit-Learn machine learning library
 This program seeks to show both the ability and realibility of machine learning in medical imaging
 By utilizing different machine learning techniques, we can discover the most effective means of
 classifying breast cancer from histopathology images, and whether it would be worthwhile to incorporate
