@@ -5,6 +5,7 @@ This object loads the IDC dataset.
 """
 The IDC dataset contains 277,524 patches of size 50x50. They come from 162 whole mount slide images of Breast Cancer
 This loader will sort the data into IDC Negative and IDC Positive. 
+Currently the datasetTEST is a subset of the dataset for testing purposes
 """
 # the os library will allow the creation of the folders to store the positive and negative IDC samples
 import os
