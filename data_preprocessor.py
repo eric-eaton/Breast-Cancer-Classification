@@ -47,6 +47,11 @@ Helper Method
 This method generates the paths for the project. Creates the processed folder as well as two sub folders
 for storing the postive and negative IDC images
 os.getcwd() allows the program to work on any machine
+os.path.join() takes two arguments. The first is the base path name, or the path which we wish to join to. 
+The second is the file name or path name we wish to join to it. 
+ex) C:\\USER would be the base path and file1 would be the file names
+if you pass them as string to os.path.join("C:\\USER","file1")
+you will get "C:\\USER\\file1" returned
 """
 def create_paths():
     #the path of the project on any system
