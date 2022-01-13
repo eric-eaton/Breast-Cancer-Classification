@@ -15,6 +15,10 @@ dataset = "datasetTEST"
 #shutil is a library used for copying files
 import shutil
 
+#tqdm is a loading bar module
+from tqdm import tqdm
+
+
 """
 preprocessor()
 MAIN
@@ -24,13 +28,15 @@ the images to be utilized in the program
 
 def preprocessor():
     positive, negative = create_dirs()
-    originalPaths = images_lister(dataset)
-
+    originalPaths, count = images_lister(dataset)
+    progressBar = tqdm(total=count)
     for file in originalPaths:
         if file[-5] == '0':
             shutil.copy2(file, negative)
+            progressBar.update(1)
         elif file[-5] == '1':
             shutil.copy2(file,positive)
+            progressBar.update(1)
 
 
 
@@ -78,13 +84,15 @@ This allows the files to be copied into their respective folders
 """
 def images_lister(dataset):
     imageList =[]
+    count = 0
     for (rootDir, dirNames, filenames) in os.walk(dataset):
         for filename in filenames:
             if filename == "":
                 continue
             path = os.path.join(rootDir,filename)
             imageList.append(path)
-    return imageList
+             count = count + 1
+    return imageList, count
 
 
 
