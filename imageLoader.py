@@ -23,6 +23,12 @@ imageLoader()
 MAIN
 Uses the helper function create_dictionary() and imageLoader() to load the dataset with numpy arrays of the images
 For now, we will be splitting 10% for validation during the testing phase
+
+the dataset dictionary is a dictionary which stores another dictionary
+the primary keys will be dataset[positive] and dataset[negative] the values attached to those keys are another
+dictionary. This subdictionary contains the keys train,validation, train_files,validation_files. the values associated
+with those keys will be the loaded images and their filepaths. While saving their filepaths is not necessary, it helps
+for if we want to print a list of the files we are using. 
 """
 def imageLoader():
     images_dict = create_dictionary()
