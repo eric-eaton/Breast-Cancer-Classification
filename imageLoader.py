@@ -1,6 +1,16 @@
 """
 imageLoader.py
 This module allows the images sorted by data_preprocessor to be loaded into numpy arrays
+
+NOTE
+imread returns a numpy array which contains a 3 dimensional array IF the image is RGB. In this project, all the images
+are 50 pixels wide and 50 pixels high. Each pixel stores an individual Red Green and Blue value.
+So, each image is an array which consists of 2,500 pixels, and each pixel has three values which determine its color
+Futhermore, the rows and columns coorespond with the image from left to right, top to bottom. Thus, if we want the very
+first pixel in the image, image[0,0,:] which means first row, first column, and we want to see the RGB values with ':'
+for 8863_idx5_x51_y1251_class0.png in datasetTEST, this would return [247,247,247] which is the RGB values for white.
+if you open the image you can see that the top left corner is white. for the same image, using image[0,49,:]
+will return [195,  79, 114] which is a dark pink, which matches the top right corner of the image.
 """
 
 #os will allow creating a path to the images usable by imread
