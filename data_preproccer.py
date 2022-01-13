@@ -46,10 +46,11 @@ create_paths()
 Helper Method
 This method generates the paths for the project. Creates the processed folder as well as two sub folders
 for storing the postive and negative IDC images
+os.getcwd() allows the program to work on any machine
 """
 def create_paths():
-    #the path of the project
-    project_path = "C:\\Users\\Eric Eaton\\Documents\\School\\Phyton\\ML Projects\\SKLearnCancerNet"
+    #the path of the project on any system
+    project_path = os.getcwd()
     # processed_path holds the path to the processed folder where the data will be sorted
     processed_path = os.path.join(project_path, "processed")
     #this creates the positive and
