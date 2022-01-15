@@ -57,6 +57,34 @@ class FeatureExtractor:
     since uint8 is bound to a specific range, adding 247 + 10 does not produce 257. The resultant will be 1. Once 255
     is reached in the addition, it rolls over, counting up from 10. This unique overflow property allows the unique 
     50x50 2D array to be created. 
+
+    NOTE
+    matplotlib pyplot has a function called imshow() which plots an image from an imread() array. If you load an image using imread() and pass
+    it to imshow(), it will plot a 50x50 pixel grid of the image. Futhermore, if you pass the image through the image condenser, and then 
+    into imshow() you can see that the image retains most details of the original, producing a heatmap effect. This can be seen in the 
+    testImages directory. What this means is that we are still extracting features based on the same image, just flattended to work with 
+    Principal Component Analysis. 
+
+    TO TEST: copy and paste this whole section
+    #I recommend doing this in the pycharm console in the project folder you have saved all the files in
+
+    from matplotlib import pyplot as plt
+    from imageio import imread
+    #select any image in datasetTEST
+    image = imread("processed/negative/8863_idx5_x101_y1201_class0.png")
+    #with the image loaded pass it to imshow
+    plt.imshow(image)
+    #this will plot the image
+    #now you pass image to the condenser function from FeatureExtractor
+    #import the FeatureExtractor Class
+    from FeatureExtractor import FeatureExtractor
+    #create a new instance of the class as an object
+    feature_extractor = FeatureExtractor()
+    #call the function
+    image_flat = feature_extractor.condenser(image)
+    #plot the condensed image
+    plt.imshow(image_flat)
+
     """
     @staticmethod
     def condenser(image):
