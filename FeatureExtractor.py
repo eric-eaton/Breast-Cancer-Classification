@@ -56,7 +56,29 @@ class FeatureExtractor:
     into imshow() you can see that the image retains most details of the original, producing a heatmap effect. This can be seen in the 
     testImages directory. What this means is that we are still extracting features based on the same image, just flattended to work with 
     Principal Component Analysis. 
+
+    TO TEST: copy and paste this whole section
+    #I recommend doing this in the pycharm console in the project folder you have saved all the files in
+
+    from matplotlib import pyplot as plt
+    from imageio import imread
+    #select any image in datasetTEST
+    image = imread("processed/negative/8863_idx5_x101_y1201_class0.png")
+    #with the image loaded pass it to imshow
+    plt.imshow(image)
+    #this will plot the image
+    #now you pass image to the condenser function from FeatureExtractor
+    #import the FeatureExtractor Class
+    from FeatureExtractor import FeatureExtractor
+    #create a new instance of the class as an object
+    feature_extractor = FeatureExtractor()
+    #call the function
+    image_flat = feature_extractor.condenser(image)
+    #plot the condensed image
+    plt.imshow(image_flat)
     """
+    #I made this method static becuase it was giving me an error when trying to pass image. This might have been fixed by adding self as one
+    #of the variables but it works so I am going to leave it for now.
     @staticmethod
     def condenser(image):
         condensedImage = (image[:, :, 0] + image[:, :, 1] + image[:, :, 2])
