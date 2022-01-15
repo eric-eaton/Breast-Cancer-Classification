@@ -48,8 +48,14 @@ class FeatureExtractor:
     imread uses the numpy datatype uint8 to signify the 8 bit color of the image. uint8 stands for 
     'unsigned inter with 8 byte' which means it can represent 0 to 255, which corresponds to the range for RGB values.
     since uint8 is bound to a specific range, adding 247 + 10 does not produce 257. The resultant will be 1. Once 255
-    is reached in the addition, it rolls over, counting up from 10. This unique overflow property allows the unique 
-    50x50 2D array to be created. 
+    is reached in the addition, it rolls over, counting up from 10. 
+
+    NOTE
+    matplotlib pyplot has a function called imshow() which plots an image from an imread() array. If you load an image using imread() and pass
+    it to imshow(), it will plot a 50x50 pixel grid of the image. Futhermore, if you pass the image through the image condenser, and then 
+    into imshow() you can see that the image retains most details of the original, producing a heatmap effect. This can be seen in the 
+    testImages directory. What this means is that we are still extracting features based on the same image, just flattended to work with 
+    Principal Component Analysis. 
     """
     @staticmethod
     def condenser(image):
